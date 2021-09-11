@@ -3,7 +3,7 @@
     <item>
         <bitmap android:gravity="fill" android:src="@drawable/background"/>
     </item>
-    <item>
-        <bitmap android:gravity="center" android:src="@drawable/splash"/>
-    </item>
+    <!-- <item>
+        <bitmap android:gravity="center" android:src="@mipmap/ic_launcher.png"/>
+    </item> -->
 </layer-list>

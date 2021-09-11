@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:lifemotivation/ad_state.dart';
 import 'package:lifemotivation/myhomepage.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(statusBarColor: Colors.transparent));
-
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  final initFuture = MobileAds.instance.initialize();
+  final adState = AdState(initFuture);
+  runApp(Provider.value(
+    value: adState,
+    builder: (context, child) => MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
